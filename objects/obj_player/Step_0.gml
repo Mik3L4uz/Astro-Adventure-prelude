@@ -19,6 +19,12 @@ x_speed = (right_key - left_key) * mov_speed		// Faccio il calcolo tra 2 boolean
 y_speed = (down_key - up_key) * mov_speed			// Moltiplico poi per aggiungere la velocità del payer
 
 
+if instance_exists(obj_pauser){		//Pausa
+x_speed = 0;
+y_speed = 0;
+}
+
+
 mask_index = sprite[DOWN];	//Posizione iniziale dello sprite
 
 if y_speed == 0{			// Guardo se sta camminando in orizzontale e cambio lo sprite tra dx e sx
