@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"sprites",
-    "path":"folders/sprites.yy",
+    "name":"sprs_tiles_sets",
+    "path":"folders/sprites/sprs_tiles_sets.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

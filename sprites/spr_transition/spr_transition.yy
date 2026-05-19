@@ -50,8 +50,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"sprites",
-    "path":"folders/sprites.yy",
+    "name":"sprs_objects",
+    "path":"folders/sprites/sprs_objects.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

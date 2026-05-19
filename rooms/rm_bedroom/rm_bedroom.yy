@@ -43,8 +43,8 @@
   ],
   "name":"rm_bedroom",
   "parent":{
-    "name":"rooms",
-    "path":"folders/rooms.yy",
+    "name":"rm_home",
+    "path":"folders/rooms/rm_home.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
