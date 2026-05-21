@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"main_font",
+  "%Name":"title_font",
   "AntiAlias":0,
   "applyKerning":0,
   "ascender":22,
@@ -206,10 +206,10 @@
   "last":0,
   "lineHeight":28,
   "maintainGms1Font":false,
-  "name":"main_font",
+  "name":"title_font",
   "parent":{
-    "name":"fonts",
-    "path":"folders/general_assets/fonts.yy",
+    "name":"menu system",
+    "path":"folders/menu system.yy",
   },
   "pointRounding":0,
   "ranges":[
