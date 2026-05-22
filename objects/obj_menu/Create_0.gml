@@ -1,6 +1,8 @@
 // MENU STATE //
 
-menu_state = MENU_STATE.MAIN
+menu_state = MENU_STATE.MAIN;
+global.in_main_menu = true;
+global.playing = false;
 
 // -- MAIN MENU -- //
 

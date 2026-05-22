@@ -16,6 +16,8 @@ switch (menu_state) {
 		        case 0:
 		            room_goto(rm_bedroom);
 					menu_state = MENU_STATE.OFF
+					global.in_main_menu = false;
+					global.playing = true;
 		            break;
 
 		        case 1:
@@ -45,9 +47,11 @@ switch (menu_state) {
 	case MENU_STATE.OFF:
 		
 		if (keyboard_check_pressed(vk_escape)) {
-		menu_state = MENU_STATE.MAIN
-		room_goto(rm_title_screen);
-		instance_destroy(obj_player);
+			global.in_main_menu = true;
+			global.playing = false;
+			menu_state = MENU_STATE.MAIN
+			room_goto(rm_title_screen);
+			instance_destroy(obj_player);
 		}
 		
 }
