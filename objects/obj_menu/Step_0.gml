@@ -1,17 +1,20 @@
+// Logica fullscreen (premo e faccio il toggle)
+if keyboard_check_pressed(vk_f11) {full_screen = !full_screen}
+window_set_fullscreen(full_screen);
 
 switch (menu_state) {
 	
 	case MENU_STATE.MAIN:
 	
-		if (keyboard_check_pressed(ord("S"))) {selected++}
+		if (keyboard_check_pressed(ord("S"))) {main_menu_selected++}
 
-		if (keyboard_check_pressed(ord("W"))) {selected--}
+		if (keyboard_check_pressed(ord("W"))) {main_menu_selected--}
 
-		selected = clamp(selected, 0, menu_length - 1);
+		main_menu_selected = clamp(main_menu_selected, 0, menu_length - 1);
 
 		if (keyboard_check_pressed(vk_enter))
 		{
-		    switch(selected)
+		    switch(main_menu_selected)
 		    {
 		        case 0:
 		            room_goto(rm_bedroom);
@@ -38,13 +41,69 @@ switch (menu_state) {
 		
 	case MENU_STATE.CREDITS:
 
-		if (keyboard_check_pressed(vk_escape)) {
+		if (keyboard_check_pressed(vk_escape) && menu_state != MENU_STATE.INGAME) {
 		menu_state = MENU_STATE.MAIN
+		}
+		
+		break;
+	
+	case MENU_STATE.INGAME:
+	
+		global.playing = false;
+		
+		if (keyboard_check_pressed(vk_tab)) {
+			menu_state = MENU_STATE.OFF
+			global.playing = true;
+		}
+		
+		if (keyboard_check_pressed(ord("S")))
+	    {
+	        ingame_menu_selected++;
+	    }
+
+	    if (keyboard_check_pressed(ord("W")))
+	    {
+	        ingame_menu_selected--;
+	    }
+
+	    ingame_menu_selected = clamp(		// Clamp blocca i valori tra un certo numero
+	        ingame_menu_selected,
+	        0,
+	        array_length(ingame_menu_items) - 1
+	    );
+		
+		if keyboard_check_pressed(vk_enter) {
+			
+			switch ingame_menu_selected{
+			
+				case 0:
+					
+					show_debug_message("Inventario aperto")
+					
+					break;
+					
+				case 1:
+				
+					show_debug_message("Astrowatch aperto")
+					
+					break;
+					
+				case 2:
+				
+					show_debug_message("Settings aperte")
+					
+					break;
+			
+			}
+			
 		}
 		
 		break;
 		
 	case MENU_STATE.OFF:
+		if (keyboard_check_pressed(vk_tab)) {
+			menu_state = MENU_STATE.INGAME
+		}
 		
 		if (keyboard_check_pressed(vk_escape)) {
 			global.in_main_menu = true;
@@ -53,5 +112,7 @@ switch (menu_state) {
 			room_goto(rm_title_screen);
 			instance_destroy(obj_player);
 		}
+		
+		break;
 		
 }

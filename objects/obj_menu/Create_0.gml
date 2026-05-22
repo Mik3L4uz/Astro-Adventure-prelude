@@ -1,3 +1,6 @@
+full_screen = false;		// Booleano che gestisce il fullscreen
+menu_open = false;			// Booleano che gestisce il menu in game
+
 // MENU STATE //
 
 menu_state = MENU_STATE.MAIN;
@@ -6,12 +9,15 @@ global.playing = false;
 
 // -- MAIN MENU -- //
 
-menu_items = ["Start game", "Settings", "Credits", "Quit game"];
-menu_length = array_length(menu_items);
+main_menu_items = ["Start game", "Settings", "Credits", "Quit game"];
+menu_length = array_length(main_menu_items);
 
 op_border = 8;
 op_space = 16;
 
-selected = 0;
+main_menu_selected = 0;
 
 // -- CREDIDS -- //
+
+ingame_menu_items = ["Inventory", "Astrowatch", "Settings"];
+ingame_menu_selected = 0;		// Indice che indica dove è la selezione

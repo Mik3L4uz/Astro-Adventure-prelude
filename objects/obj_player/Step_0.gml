@@ -7,7 +7,7 @@ Primo codiciazzo per il giochino, la logica gestisce:
 - Corretta mostra del player
 
 */
-if global.playing {
+if global.playing {		// faccio tutto solo se l'utente sta giocando (sospendo nei menu)
 	
 	image_speed = 1
 
