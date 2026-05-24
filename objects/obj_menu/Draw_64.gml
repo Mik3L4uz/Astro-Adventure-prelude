@@ -35,47 +35,129 @@ switch (menu_state) {
 		draw_text(display_get_gui_width() / 2, display_get_gui_height() / 2 + 140, "Press [ESC] to go back");
 		
 		break;
+	
+	case MENU_STATE.OPTIONS:
+		
+		draw_set_font(main_font)
+		
+		draw_text(display_get_gui_width() / 2, display_get_gui_height() / 2 - 100, "Options will be soon aviable");
+		
+		break;
 		
 	case MENU_STATE.INGAME:
 		
 		// luminosità abbassata (drawo uno sprite nero con alpha ridotto)
-	draw_sprite(spr_black_alpha, 0, 0, 0)
+		draw_sprite(spr_black_alpha, 0, 0, 0)
 	
-    // sfondo panel (drawo lo sprite con il nine slice)
-    draw_sprite_stretched(
-        spr_menu,
-        0,
-        20,
-        display_get_gui_height() - 180,
-        250,
-        160
-    );
+	    // sfondo panel (drawo lo sprite con il nine slice)
+	    draw_sprite_stretched(
+	        spr_menu,
+	        0,
+	        20,
+	        display_get_gui_height() - 180,
+	        250,
+	        160
+	    );
 
-    // drawo i testi delle selezioni e metto un > come indicare la selezione
-    draw_set_font(main_font);
-    draw_set_halign(fa_left);
+	    // drawo i testi delle selezioni e metto un > come indicare la selezione
+	    draw_set_font(main_font);
+	    draw_set_halign(fa_left);
 
-    for (var i = 0; i < array_length(ingame_menu_items); i++)
-    {
-        var text = ingame_menu_items[i];
+	    for (var i = 0; i < array_length(ingame_menu_items); i++)
+	    {
+	        var text = ingame_menu_items[i];
 
-        if (i == ingame_menu_selected) {
+	        if (i == ingame_menu_selected) {
 			
-            text = "> " + text;
-        }
-		else {
+	            text = "> " + text;
+	        }
+			else {
 		
-			text = "   " + text
-		}
+				text = "   " + text
+			}
 
-        draw_text(
-            40,
-            display_get_gui_height() - 150 + (i * 35),
-            text
-        );
-    }
+	        draw_text(
+	            40,
+	            display_get_gui_height() - 150 + (i * 35),
+	            text
+	        );
+	    }
 	
-	break;
+		break;
+	
+	case MENU_STATE.WHATCH:
+	
+	    // sfondo panel (drawo lo sprite con il nine slice)
+	    draw_sprite_stretched(
+	        spr_menu,
+	        0,
+	        20,
+	        display_get_gui_height() - 490,
+	        500,
+	        470
+	    );
+
+	    // drawo i testi delle selezioni e metto un > come indicare la selezione
+	    draw_set_font(main_font);
+	    draw_set_halign(fa_left);
+		
+		draw_set_font(title_font);
+
+		draw_text(120, display_get_gui_height() - 465, "ASTROWHATCH")
+
+		draw_set_font(main_font);
+
+	    for (var i = 0; i < array_length(whatch_items); i++)
+	    {
+	        var text = whatch_items[i];
+			if (i == whatch_selected) {text = "> " + text;}
+			else {text = "   " + text}
+
+	        draw_text(
+	            40,
+	            display_get_gui_height() - 400 + (i * 35),
+	            text
+	        );
+	    }
+		
+		break;
+		
+	case MENU_STATE.INV:
+	
+	    // sfondo panel (drawo lo sprite con il nine slice)
+	    draw_sprite_stretched(
+	        spr_menu,
+	        0,
+	        20,
+	        display_get_gui_height() - 490,
+	        500,
+	        470
+	    );
+
+	    // drawo i testi delle selezioni e metto un > come indicare la selezione
+	    draw_set_font(main_font);
+	    draw_set_halign(fa_left);
+		
+		draw_set_font(title_font);
+
+		draw_text(163, display_get_gui_height() - 465, "INVENTORY")
+
+		draw_set_font(main_font);
+
+	    for (var i = 0; i < array_length(inv_items); i++)
+	    {
+	        var text = inv_items[i];
+			if (i == inv_selected) {text = "> " + text;}
+			else {text = "   " + text}
+
+	        draw_text(
+	            40,
+	            display_get_gui_height() - 400 + (i * 35),
+	            text
+	        );
+	    }
+		
+		break;
 		
 	case MENU_STATE.OFF:
 	

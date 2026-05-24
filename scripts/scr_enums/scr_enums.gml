@@ -4,5 +4,7 @@ enum MENU_STATE
     OPTIONS,
     CREDITS,
 	INGAME,
+	WHATCH,
+	INV,
     OFF
 }

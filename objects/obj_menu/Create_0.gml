@@ -17,7 +17,17 @@ op_space = 16;
 
 main_menu_selected = 0;
 
-// -- CREDIDS -- //
+// -- INGAME MENU -- //
 
-ingame_menu_items = ["Inventory", "Astrowatch", "Settings"];
+ingame_menu_items = ["Inventory", "Astrowatch", "Quit to title"];
 ingame_menu_selected = 0;		// Indice che indica dove è la selezione
+
+// -- WHATCH -- //
+
+whatch_items = ["Selezione 1", "Selezione 2", "Selezione 3", "Selezione 4", "Selezione 5"];
+whatch_selected = 0;		// Indice che indica dove è la selezione
+
+// -- INVENTORY -- //
+
+inv_items = ["Oggetto 1", "Oggetto 2", "Oggetto 3", "Oggetto 4"];
+inv_selected = 0;		// Indice che indica dove è la selezione

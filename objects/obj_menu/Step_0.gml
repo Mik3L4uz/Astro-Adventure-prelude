@@ -17,6 +17,7 @@ switch (menu_state) {
 		    switch(main_menu_selected)
 		    {
 		        case 0:
+				
 		            room_goto(rm_bedroom);
 					menu_state = MENU_STATE.OFF
 					global.in_main_menu = false;
@@ -24,15 +25,21 @@ switch (menu_state) {
 		            break;
 
 		        case 1:
-		            show_debug_message("Apri opzioni");
+
+					menu_state = MENU_STATE.OPTIONS
+					
 		            break;
 
 		        case 2:
+				
 					menu_state = MENU_STATE.CREDITS
+					
 					break;
 			
 				case 3:
+				
 					game_end(0);
+					
 					break;
 		    }
 		}
@@ -41,9 +48,7 @@ switch (menu_state) {
 		
 	case MENU_STATE.CREDITS:
 
-		if (keyboard_check_pressed(vk_escape) && menu_state != MENU_STATE.INGAME) {
-		menu_state = MENU_STATE.MAIN
-		}
+		if (keyboard_check_pressed(vk_escape)) {menu_state = MENU_STATE.MAIN}
 		
 		break;
 	
@@ -78,19 +83,25 @@ switch (menu_state) {
 			
 				case 0:
 					
-					show_debug_message("Inventario aperto")
+					menu_state = MENU_STATE.INV
 					
 					break;
 					
 				case 1:
 				
-					show_debug_message("Astrowatch aperto")
+					menu_state = MENU_STATE.WHATCH
 					
 					break;
 					
 				case 2:
 				
-					show_debug_message("Settings aperte")
+					global.in_main_menu = true;
+					global.playing = false;
+					menu_state = MENU_STATE.MAIN
+					room_goto(rm_title_screen);
+					ingame_menu_selected = 0;
+					instance_destroy(obj_player);
+					
 					
 					break;
 			
@@ -100,18 +111,83 @@ switch (menu_state) {
 		
 		break;
 		
-	case MENU_STATE.OFF:
+	case MENU_STATE.WHATCH:
+	
+		global.playing = false;
+	
 		if (keyboard_check_pressed(vk_tab)) {
-			menu_state = MENU_STATE.INGAME
+			menu_state = MENU_STATE.OFF
+			global.playing = true;
+			break;
 		}
 		
+		if (keyboard_check_pressed(ord("S")))
+	    {
+	        whatch_selected++;
+	    }
+
+	    if (keyboard_check_pressed(ord("W")))
+	    {
+	        whatch_selected--;
+	    }
+
+	    whatch_selected = clamp(		// Clamp blocca i valori tra un certo numero
+	        whatch_selected,
+	        0,
+	        array_length(whatch_items) - 1
+	    );
+		
 		if (keyboard_check_pressed(vk_escape)) {
-			global.in_main_menu = true;
-			global.playing = false;
-			menu_state = MENU_STATE.MAIN
-			room_goto(rm_title_screen);
-			instance_destroy(obj_player);
+			
+			menu_state = MENU_STATE.INGAME
+			break;
+			
 		}
+		
+		break;
+			
+	case MENU_STATE.INV:
+	
+		global.playing = false;
+	
+		if (keyboard_check_pressed(vk_tab)) {
+			menu_state = MENU_STATE.OFF
+			global.playing = true;
+			break;
+		}
+		
+		if (keyboard_check_pressed(ord("S")))
+	    {
+	        inv_selected++;
+	    }
+
+	    if (keyboard_check_pressed(ord("W")))
+	    {
+	        inv_selected--;
+	    }
+
+	    inv_selected = clamp(		// Clamp blocca i valori tra un certo numero
+	        inv_selected,
+	        0,
+	        array_length(inv_items) - 1
+	    );
+		
+		if (keyboard_check_pressed(vk_escape)) {
+			
+			menu_state = MENU_STATE.INGAME
+			break;
+			
+		}
+			
+		break;
+	
+	case MENU_STATE.OPTIONS:
+		
+		if (keyboard_check_pressed(vk_escape)) {menu_state = MENU_STATE.MAIN}
+		
+	case MENU_STATE.OFF:
+	
+		if (keyboard_check_pressed(vk_tab)) {menu_state = MENU_STATE.INGAME}
 		
 		break;
 		
