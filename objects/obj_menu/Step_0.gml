@@ -56,6 +56,11 @@ switch (menu_state) {
 	
 		global.playing = false;
 		
+		if (keyboard_check_pressed(vk_escape)) {
+			menu_state = MENU_STATE.OFF
+			global.playing = true
+		}
+		
 		if (keyboard_check_pressed(vk_tab)) {
 			menu_state = MENU_STATE.OFF
 			global.playing = true;

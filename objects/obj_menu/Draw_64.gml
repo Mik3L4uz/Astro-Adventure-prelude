@@ -87,6 +87,8 @@ switch (menu_state) {
 	
 	case MENU_STATE.WHATCH:
 	
+		draw_sprite(spr_black_alpha, 0, 0, 0)
+		
 	    // sfondo panel (drawo lo sprite con il nine slice)
 	    draw_sprite_stretched(
 	        spr_menu,
@@ -123,6 +125,8 @@ switch (menu_state) {
 		break;
 		
 	case MENU_STATE.INV:
+	
+		draw_sprite(spr_black_alpha, 0, 0, 0)
 	
 	    // sfondo panel (drawo lo sprite con il nine slice)
 	    draw_sprite_stretched(
