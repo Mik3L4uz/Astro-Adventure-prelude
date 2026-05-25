@@ -52,3 +52,9 @@ The game is currently in development and many features are still work in progres
 Created with passion by me.
 
 This project is part of my learning journey in game development.
+
+### Run the game!
+
+If you don't have GameMaker downloded on your machine, there's an archive which contains the .exe file to run a test of the game!
+
+Thanks for trying it out and create a new issue if you find one!
