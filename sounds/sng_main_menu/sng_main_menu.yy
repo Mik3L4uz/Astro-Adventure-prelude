@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sng_main_menu",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":82.330376,
+  "exportDir":"",
+  "name":"sng_main_menu",
+  "parent":{
+    "name":"sounds",
+    "path":"folders/sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"sng_main_menu.ogg",
+  "volume":1.0,
+}
