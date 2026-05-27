@@ -49,7 +49,7 @@ The game is currently in development and many features are still work in progres
 
 ## Author
 
-Created with passion by me.
+Game and sountrack created by me.
 
 This project is part of my learning journey in game development.
 
